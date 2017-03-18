@@ -37,16 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Basic using of Git">
+<meta name="description" content="Testing">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git-101">
-<meta property="og:url" content="https://blog.starr.vip/2016/12/28/git/index.html">
+<meta property="og:title" content="Transfering data to github io">
+<meta property="og:url" content="https://blog.starr.vip/2017/03/17/Transfering_test/index.html">
 <meta property="og:site_name" content="Zippo's blog">
-<meta property="og:description" content="Basic using of Git">
-<meta property="og:updated_time" content="2016-12-28T12:52:10.000Z">
+<meta property="og:description" content="Testing">
+<meta property="og:updated_time" content="2017-03-18T01:52:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git-101">
-<meta name="twitter:description" content="Basic using of Git">
+<meta name="twitter:title" content="Transfering data to github io">
+<meta name="twitter:description" content="Testing">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title> Git-101 | Zippo's blog </title>
+  <title> Transfering data to github io | Zippo's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -165,7 +165,7 @@
           
           
             
-              Git-101
+              Transfering data to github io
             
           
         </h1>
@@ -174,8 +174,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-12-28T04:52:10-08:00" content="2016-12-28">
-            2016-12-28
+          <time itemprop="dateCreated" datetime="2017-03-17T18:52:10-07:00" content="2017-03-18">
+            2017-03-18
           </time>
         </span>
 
@@ -204,11 +204,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2016/12/28/git/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/28/git/" itemprop="commentsCount"></span>
+              <a href="/2017/03/17/Transfering_test/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/17/Transfering_test/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2016/12/28/git/#comments" itemprop="discussionUrl">
+              <a href="/2017/03/17/Transfering_test/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -223,38 +223,7 @@
       
 
       
-        <span itemprop="articleBody"><hr>
-<h1 id="Enableing-git"><a href="#Enableing-git" class="headerlink" title="Enableing git"></a>Enableing git</h1><ul>
-<li>‘cd’ to target folder(in which you need to manage your modify to the files)</li>
-<li><p>Entering</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<p>(to enable git in this folder)</p>
-</li>
-</ul>
-<h1 id="Adding-files-to-temporary-stage"><a href="#Adding-files-to-temporary-stage" class="headerlink" title="Adding files to temporary stage"></a>Adding files to temporary stage</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add + &apos;file1&apos; + &apos; &apos; + &apos;file2&apos; + &apos; &apos;+...+&apos; &apos; + &apos;fileN&apos;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>if file’s name has special char, you need to add double quotes</li>
-</ul>
-<h1 id="Commiting-change"><a href="#Commiting-change" class="headerlink" title="Commiting change"></a>Commiting change</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;you name it&quot;</span><br></pre></td></tr></table></figure>
-<h1 id="Checking-status"><a href="#Checking-status" class="headerlink" title="Checking status"></a>Checking status</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-<h1 id="Back-to-privious-version-everything"><a href="#Back-to-privious-version-everything" class="headerlink" title="Back to privious version(everything)"></a>Back to privious version(everything)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
-<ul>
-<li>find your commit, and copy the <strong>first part</strong> of string(i.e: a5f620e of “a5f620e HEAD@{0}: reset: moving to HEAD~1”) aka the <em>commit_id</em></li>
-<li><p>entering <code>git reset --hard &#39;commit_id&#39;</code></p>
-</li>
-<li><p>you can also use ‘HEAD’ to represent the present version, ‘HEAD~N’ to represent the privious Nth version( i.e: <code>git reset --hard HEAD~1</code>)</p>
-</li>
-</ul>
-<h1 id="Back-to-privious-version-certain-file"><a href="#Back-to-privious-version-certain-file" class="headerlink" title="Back to privious version(certain file)"></a>Back to privious version(certain file)</h1><p>There are 3 different situations in this case.</p>
-<h3 id="One-Haven’t-added-to-temporary-stage"><a href="#One-Haven’t-added-to-temporary-stage" class="headerlink" title="One:Haven’t added to temporary stage."></a>One:Haven’t added to temporary stage.</h3><ul>
-<li>simply using <code>git checkout -- file</code>, bring this file to what it was when you commited it last time.</li>
-</ul>
-<h3 id="Two-Already-have-added-to-temporary-but-luckily-you-haven’t-commited-it-yet"><a href="#Two-Already-have-added-to-temporary-but-luckily-you-haven’t-commited-it-yet" class="headerlink" title="Two:Already have added to temporary, but luckily you haven’t commited it yet."></a>Two:Already have added to temporary, but luckily you haven’t commited it yet.</h3><ul>
-<li>using <code>git reset HEAD file</code>, bring you to <strong>situation one</strong>.</li>
-</ul>
-<h3 id="Three-Already-commit"><a href="#Three-Already-commit" class="headerlink" title="Three:Already commit."></a>Three:Already commit.</h3><ul>
-<li>Refer “Back to privious version(everything)”</li>
-</ul>
+        <span itemprop="articleBody"><p>I just found out that using github is really convinient </p>
 </span>
       
     </div>
@@ -272,13 +241,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/27/git_branch/" rel="prev">Git_branch</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/21/Decorator/" rel="next">Decorator</a>
+              <a href="/2017/02/27/git_branch/" rel="next">Git_branch</a>
             
           </div>
         </div>
@@ -293,10 +260,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/28/git/"
-     data-title="Git-101"
+        <div class="ds-share flat" data-thread-key="2017/03/17/Transfering_test/"
+     data-title="Transfering data to github io"
      data-content=""
-     data-url="https://blog.starr.vip/2016/12/28/git/">
+     data-url="https://blog.starr.vip/2017/03/17/Transfering_test/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -322,8 +289,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/12/28/git/"
-                   data-title="Git-101" data-url="https://blog.starr.vip/2016/12/28/git/">
+              <div class="ds-thread" data-thread-key="2017/03/17/Transfering_test/"
+                   data-title="Transfering data to github io" data-url="https://blog.starr.vip/2017/03/17/Transfering_test/">
               </div>
             
           </div>
@@ -418,7 +385,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Enableing-git"><span class="nav-number">1.</span> <span class="nav-text">Enableing git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Adding-files-to-temporary-stage"><span class="nav-number">2.</span> <span class="nav-text">Adding files to temporary stage</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Commiting-change"><span class="nav-number">3.</span> <span class="nav-text">Commiting change</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Checking-status"><span class="nav-number">4.</span> <span class="nav-text">Checking status</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Back-to-privious-version-everything"><span class="nav-number">5.</span> <span class="nav-text">Back to privious version(everything)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Back-to-privious-version-certain-file"><span class="nav-number">6.</span> <span class="nav-text">Back to privious version(certain file)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#One-Haven’t-added-to-temporary-stage"><span class="nav-number">6.0.1.</span> <span class="nav-text">One:Haven’t added to temporary stage.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-Already-have-added-to-temporary-but-luckily-you-haven’t-commited-it-yet"><span class="nav-number">6.0.2.</span> <span class="nav-text">Two:Already have added to temporary, but luckily you haven’t commited it yet.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Three-Already-commit"><span class="nav-number">6.0.3.</span> <span class="nav-text">Three:Already commit.</span></a></li></ol></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
