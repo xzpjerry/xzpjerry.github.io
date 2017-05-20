@@ -355,45 +355,6 @@ service dnsmasq start
   </entry>
   
   <entry>
-    <title>基础轮子，SSH KEY登录</title>
-    <link href="https://blog.starr.vip/2016/08/02/sthAboutSSH/"/>
-    <id>https://blog.starr.vip/2016/08/02/sthAboutSSH/</id>
-    <published>2016-08-02T08:30:10.000Z</published>
-    <updated>2016-08-02T08:35:00.000Z</updated>
-    
-    <content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;关于创建客户机公私钥&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;密钥导入母鸡&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1、上传公钥
-2、cat id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;关闭密码登录（端口也是在这个文件中定义，但一般还是不要改比较方便）&lt;pre&gt;&lt;code&gt;1.vi /etc/ssh/sshd_config
-2.Modify those lines:
-        PubkeyAuthentication          yes
-        AuthorizedKeysFile           .ssh/authorized_keys
-        PasswordAuthentication      no
-3.service sshd restart  #centos是这个，别的unix可能不一样
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      又快又安全
-    
-    </summary>
-    
-      <category term="linux" scheme="https://blog.starr.vip/categories/linux/"/>
-    
-    
-      <category term="linux" scheme="https://blog.starr.vip/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
     <title>基础轮子，hexo自动发射</title>
     <link href="https://blog.starr.vip/2016/08/02/sthAboutAutoDeploy/"/>
     <id>https://blog.starr.vip/2016/08/02/sthAboutAutoDeploy/</id>
@@ -448,6 +409,45 @@ git --work-tree={你要部署的目录} --git-dir=/var/repo/blog.git checkout -f
     
     
       <category term="blog" scheme="https://blog.starr.vip/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基础轮子，SSH KEY登录</title>
+    <link href="https://blog.starr.vip/2016/08/02/sthAboutSSH/"/>
+    <id>https://blog.starr.vip/2016/08/02/sthAboutSSH/</id>
+    <published>2016-08-02T08:30:10.000Z</published>
+    <updated>2016-08-02T08:35:00.000Z</updated>
+    
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;关于创建客户机公私钥&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;密钥导入母鸡&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1、上传公钥
+2、cat id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;关闭密码登录（端口也是在这个文件中定义，但一般还是不要改比较方便）&lt;pre&gt;&lt;code&gt;1.vi /etc/ssh/sshd_config
+2.Modify those lines:
+        PubkeyAuthentication          yes
+        AuthorizedKeysFile           .ssh/authorized_keys
+        PasswordAuthentication      no
+3.service sshd restart  #centos是这个，别的unix可能不一样
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      又快又安全
+    
+    </summary>
+    
+      <category term="linux" scheme="https://blog.starr.vip/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="https://blog.starr.vip/tags/linux/"/>
     
   </entry>
   
