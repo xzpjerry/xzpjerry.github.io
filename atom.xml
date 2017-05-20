@@ -133,6 +133,37 @@
   </entry>
   
   <entry>
+    <title>python 高级函数</title>
+    <link href="https://blog.starr.vip/2016/12/21/Miss%20Python/"/>
+    <id>https://blog.starr.vip/2016/12/21/Miss Python/</id>
+    <published>2016-12-21T12:52:10.000Z</published>
+    <updated>2016-12-21T12:52:10.000Z</updated>
+    
+    <content type="html">&lt;hr&gt;
+&lt;h1 id=&quot;Miss-Python&quot;&gt;&lt;a href=&quot;#Miss-Python&quot; class=&quot;headerlink&quot; title=&quot;Miss Python&quot;&gt;&lt;/a&gt;Miss Python&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://static.mengniang.org/common/c/c0/Python.jpg&quot; alt=&quot;Mrs python&quot;&gt;&lt;/p&gt;
+&lt;p&gt;上个月用了两天时间捣腾Hackintosh，终于把主力笔记本换成 macos 了（嗨森），于是就开始每天和 Miss Python 谈怜爱。&lt;/p&gt;
+&lt;p&gt;今天心情不错，于是就把虚拟机里的 blog 文件夹给复制到这台 mac 上，以后每次学了点新的知识就可以做笔记了！（我发现还挺有用的，更换平台后有些要重做的环境我都是参考之前发的基础轮子）&lt;/p&gt;
+&lt;h2 id=&quot;map-reduce&quot;&gt;&lt;a href=&quot;#map-reduce&quot; class=&quot;headerlink&quot; title=&quot;map/reduce&quot;&gt;&lt;/a&gt;map/reduce&lt;/h2&gt;&lt;h3 id=&quot;map-fx-List-xx-yy-zz-将函数-f-作用到List的每个元素&quot;&gt;&lt;a href=&quot;#map-fx-List-xx-yy-zz-将函数-f-作用到List的每个元素&quot; class=&quot;headerlink&quot; title=&quot;map(fx,List[xx,yy,zz]): 将函数 f 作用到List的每个元素&quot;&gt;&lt;/a&gt;map(fx,List[xx,yy,zz]): 将函数 f 作用到List的每个元素&lt;/h3&gt;&lt;p&gt;注意： map 可以作用在Iterable的对象，如 str&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;def check_name(str):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	return str[0].upper() + str[1::].lower()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;L1 = [&amp;apos;tom&amp;apos;,&amp;apos;WINA&amp;apos;,&amp;apos;stARr&amp;apos;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print( list ( map ( check_name, L1 ) ) )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#result: [&amp;apos;Tom&amp;apos;, &amp;apos;Wina&amp;apos;, &amp;apos;Starr&amp;apos;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;reduce-fx-List-a-b-c-d-f-f-f-a-b-c-d-：函数fx-是接受两个参数的-感觉有点像不断叠加&quot;&gt;&lt;a href=&quot;#reduce-fx-List-a-b-c-d-f-f-f-a-b-c-d-：函数fx-是接受两个参数的-感觉有点像不断叠加&quot; class=&quot;headerlink&quot; title=&quot;reduce(fx, List[a,b,c,d]) = f( f( f(a, b), c), d) ：函数fx 是接受两个参数的,感觉有点像不断叠加&quot;&gt;&lt;/a&gt;reduce(fx, List[a,b,c,d]) = f( f( f(a, b), c), d) ：函数fx 是接受两个参数的,感觉有点像不断叠加&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;from functools import reduce #要 import&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;def product(List):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	def _multiple(x,y):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		return x * y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	return reduce(_multiple, List)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(&amp;apos;3!=&amp;apos;,product(range(1,4,1)))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#result: 3! = 6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;United-they’re-strong&quot;&gt;&lt;a href=&quot;#United-they’re-strong&quot; class=&quot;headerlink&quot; title=&quot;United, they’re strong&quot;&gt;&lt;/a&gt;United, they’re strong&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# input float_Str, want float.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;from functools import reduce&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;def float_str2float(str):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	temp = str.split(&amp;apos;.&amp;apos;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	def _make_num(x,y):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		return x*10 + y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	int_num = reduce(_make_num, map(int,temp[0]))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	float_num = reduce(_make_num, map(int,temp[1])) #都转成整数先&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	for i in range(len(temp[1])):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		float_num = float_num / 10 #将浮点转成真正的浮点&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	return int_num + float_num&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;Dinner-Time&quot;&gt;&lt;a href=&quot;#Dinner-Time&quot; class=&quot;headerlink&quot; title=&quot;Dinner Time&quot;&gt;&lt;/a&gt;Dinner Time&lt;/h1&gt;&lt;p&gt;祖传意大利面&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/MEOyFxY.jpg&quot; alt=&quot;strips spaghetti&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      map/reduce, sorted, filter
+    
+    </summary>
+    
+      <category term="python" scheme="https://blog.starr.vip/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://blog.starr.vip/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Decorator</title>
     <link href="https://blog.starr.vip/2016/12/21/Decorator/"/>
     <id>https://blog.starr.vip/2016/12/21/Decorator/</id>
@@ -156,37 +187,6 @@
     <summary type="html">
     
       Good for logging
-    
-    </summary>
-    
-      <category term="python" scheme="https://blog.starr.vip/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://blog.starr.vip/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python 高级函数</title>
-    <link href="https://blog.starr.vip/2016/12/21/Miss%20Python/"/>
-    <id>https://blog.starr.vip/2016/12/21/Miss Python/</id>
-    <published>2016-12-21T12:52:10.000Z</published>
-    <updated>2016-12-21T12:52:10.000Z</updated>
-    
-    <content type="html">&lt;hr&gt;
-&lt;h1 id=&quot;Miss-Python&quot;&gt;&lt;a href=&quot;#Miss-Python&quot; class=&quot;headerlink&quot; title=&quot;Miss Python&quot;&gt;&lt;/a&gt;Miss Python&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://static.mengniang.org/common/c/c0/Python.jpg&quot; alt=&quot;Mrs python&quot;&gt;&lt;/p&gt;
-&lt;p&gt;上个月用了两天时间捣腾Hackintosh，终于把主力笔记本换成 macos 了（嗨森），于是就开始每天和 Miss Python 谈怜爱。&lt;/p&gt;
-&lt;p&gt;今天心情不错，于是就把虚拟机里的 blog 文件夹给复制到这台 mac 上，以后每次学了点新的知识就可以做笔记了！（我发现还挺有用的，更换平台后有些要重做的环境我都是参考之前发的基础轮子）&lt;/p&gt;
-&lt;h2 id=&quot;map-reduce&quot;&gt;&lt;a href=&quot;#map-reduce&quot; class=&quot;headerlink&quot; title=&quot;map/reduce&quot;&gt;&lt;/a&gt;map/reduce&lt;/h2&gt;&lt;h3 id=&quot;map-fx-List-xx-yy-zz-将函数-f-作用到List的每个元素&quot;&gt;&lt;a href=&quot;#map-fx-List-xx-yy-zz-将函数-f-作用到List的每个元素&quot; class=&quot;headerlink&quot; title=&quot;map(fx,List[xx,yy,zz]): 将函数 f 作用到List的每个元素&quot;&gt;&lt;/a&gt;map(fx,List[xx,yy,zz]): 将函数 f 作用到List的每个元素&lt;/h3&gt;&lt;p&gt;注意： map 可以作用在Iterable的对象，如 str&lt;/p&gt;
- &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;def check_name(str):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	return str[0].upper() + str[1::].lower()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;L1 = [&amp;apos;tom&amp;apos;,&amp;apos;WINA&amp;apos;,&amp;apos;stARr&amp;apos;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print( list ( map ( check_name, L1 ) ) )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#result: [&amp;apos;Tom&amp;apos;, &amp;apos;Wina&amp;apos;, &amp;apos;Starr&amp;apos;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;reduce-fx-List-a-b-c-d-f-f-f-a-b-c-d-：函数fx-是接受两个参数的-感觉有点像不断叠加&quot;&gt;&lt;a href=&quot;#reduce-fx-List-a-b-c-d-f-f-f-a-b-c-d-：函数fx-是接受两个参数的-感觉有点像不断叠加&quot; class=&quot;headerlink&quot; title=&quot;reduce(fx, List[a,b,c,d]) = f( f( f(a, b), c), d) ：函数fx 是接受两个参数的,感觉有点像不断叠加&quot;&gt;&lt;/a&gt;reduce(fx, List[a,b,c,d]) = f( f( f(a, b), c), d) ：函数fx 是接受两个参数的,感觉有点像不断叠加&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;from functools import reduce #要 import&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;def product(List):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	def _multiple(x,y):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		return x * y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	return reduce(_multiple, List)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(&amp;apos;3!=&amp;apos;,product(range(1,4,1)))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#result: 3! = 6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;United-they’re-strong&quot;&gt;&lt;a href=&quot;#United-they’re-strong&quot; class=&quot;headerlink&quot; title=&quot;United, they’re strong&quot;&gt;&lt;/a&gt;United, they’re strong&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# input float_Str, want float.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;from functools import reduce&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;def float_str2float(str):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	temp = str.split(&amp;apos;.&amp;apos;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	def _make_num(x,y):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		return x*10 + y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	int_num = reduce(_make_num, map(int,temp[0]))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	float_num = reduce(_make_num, map(int,temp[1])) #都转成整数先&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	for i in range(len(temp[1])):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		float_num = float_num / 10 #将浮点转成真正的浮点&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	return int_num + float_num&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h1 id=&quot;Dinner-Time&quot;&gt;&lt;a href=&quot;#Dinner-Time&quot; class=&quot;headerlink&quot; title=&quot;Dinner Time&quot;&gt;&lt;/a&gt;Dinner Time&lt;/h1&gt;&lt;p&gt;祖传意大利面&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/MEOyFxY.jpg&quot; alt=&quot;strips spaghetti&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      map/reduce, sorted, filter
     
     </summary>
     
